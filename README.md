@@ -25,3 +25,4 @@ a [PersonalAccessToken](https://docs.microsoft.com/en-us/azure/devops/organizati
 Ensure that you select the Packaging access rights when you generate a PAT
 ![PAT packaging options](Packaging.png "Packaging Options")
 
+If you only plan to read the package data, just select `Read`. If you want to delete package versions ensure you select `Read, write and manage`
