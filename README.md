@@ -23,5 +23,5 @@ a [PersonalAccessToken](https://docs.microsoft.com/en-us/azure/devops/organizati
 ## Personal Access Token options
 
 Ensure that you select the Packaging access rights when you generate a PAT
-![PAT packaging options](Packages.png "Packaging Options")
+![PAT packaging options](Packaging.png "Packaging Options")
 
