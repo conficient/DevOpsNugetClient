@@ -29,5 +29,15 @@ namespace DevOpsNugetClient
         {
             StatusCode = code;
         }
+
+        public RestException(string message) : base(message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public RestException(string message, Exception innerException) : base(message, innerException)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

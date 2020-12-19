@@ -86,9 +86,9 @@ namespace DevOpsNugetClient
         /// <summary>
         /// Get a list of packages for the feed
         /// </summary>
-        /// <param name="feedId">Feed Id or name</param>
+        /// <param name="feedId">Feed Id or Name</param>
         /// <param name="packageNameQuery">optional - filter for package name</param>
-        /// <returns></returns>
+        /// <returns>a list of Packages found</returns>
         public async Task<List<Package>> GetPackagesAsync(string feedId, string packageNameQuery = null)
         {
             // source: https://docs.microsoft.com/en-us/rest/api/azure/devops/artifacts/artifact%20%20details/get%20packages?view=azure-devops-rest-6.0
@@ -108,6 +108,8 @@ namespace DevOpsNugetClient
         /// <returns></returns>
         public async Task<List<PackageVersion>> GetPackageVersionsAsync(string feedId, string packageId)
         {
+            if (!Guid.TryParse(packageId, out Guid guid))
+                throw new ArgumentException(nameof(packageId), "PackageId must be a package Id (GUID) not a name");
             // source: https://docs.microsoft.com/en-us/rest/api/azure/devops/artifacts/artifact%20%20details/get%20package%20versions?view=azure-devops-rest-6.0
             string url = $"/_apis/packaging/feeds/{feedId}/packages/{packageId}/versions";
             var request = new RestRequest(url);
